@@ -1,8 +1,13 @@
-schemaVersion: 2.2.0
+schemaVersion: 2.3.0
 metadata:
   name: openshift-devspaces-python-jupyter
   version: 1.0.0
   description: "Python and Jupyter Notebook environment with automatic Git repository setup for OpenShift Dev Spaces"
+  displayName: Python Jupyter Dev Environment
+  tags:
+    - Python
+    - Jupyter
+    - Data Science
 
 # --------------------------------------------------------
 # Definition of Project (Git Repository)
@@ -31,24 +36,13 @@ components:
           protocol: http
           secure: false
 
-  - name: vscode-python
-    plugin:
-      id: ms-python.python
-      registryUrl: https://open-vsx.org/
-
-  - name: vscode-jupyter
-    plugin:
-      id: ms-toolsai.jupyter
-      registryUrl: https://open-vsx.org/
-
 commands:
   - id: setup-python-env
     exec:
       component: dev-tools
-      # It should be the same as the project name in the workingDir (${PROJECTS_ROOT}/<project-name>)
       workingDir: ${PROJECTS_ROOT}/python-app
       commandLine: |
-        python -m pip install --upgrade pip
+        python -m pip install --upgrade pip && \
         pip install jupyterlab notebook ipykernel pandas numpy
       group:
         kind: build
@@ -58,7 +52,7 @@ commands:
     exec:
       component: dev-tools
       workingDir: ${PROJECTS_ROOT}/python-app
-      commandLine: "jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=''"
+      commandLine: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=''
       group:
         kind: run
         isDefault: false
