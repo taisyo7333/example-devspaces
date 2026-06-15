@@ -35,6 +35,12 @@ components:
           exposure: public
           protocol: http
           secure: false
+        - name: flask
+          targetPort: 5000
+          exposure: public
+          protocol: http
+          secure: true
+
 
 commands:
   - id: setup-python-env
