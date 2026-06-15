@@ -40,25 +40,3 @@ components:
           exposure: public
           protocol: http
           secure: true
-
-
-commands:
-  - id: setup-python-env
-    exec:
-      component: dev-tools
-      workingDir: ${PROJECTS_ROOT}/python-app
-      commandLine: |
-        python -m pip install --upgrade pip && \
-        pip install jupyterlab notebook ipykernel pandas numpy
-      group:
-        kind: build
-        isDefault: true
-
-  - id: run-jupyter-lab
-    exec:
-      component: dev-tools
-      workingDir: ${PROJECTS_ROOT}/python-app
-      commandLine: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=''
-      group:
-        kind: run
-        isDefault: false
