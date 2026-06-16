@@ -1,0 +1,42 @@
+schemaVersion: 2.3.0
+metadata:
+  name: openshift-devspaces-python-jupyter
+  version: 1.0.0
+  description: "Python and Jupyter Notebook environment with automatic Git repository setup for OpenShift Dev Spaces"
+  displayName: Python Jupyter Dev Environment
+  tags:
+    - Python
+    - Jupyter
+    - Data Science
+
+# --------------------------------------------------------
+# Definition of Project (Git Repository)
+# --------------------------------------------------------
+projects:
+  - name: python-app # directory name cloned in the workspace
+    git:
+      remotes:
+        origin: "https://github.com/taisyo7333/example-python.git"
+      checkoutFrom:
+        revision: main # Cloning Branch or tag (e.g: main, master, develop, v1.0.0 and so on)
+
+components:
+  - name: dev-tools
+    container:
+      image: registry.redhat.io/devspaces/udi-rhel9:3.28.2
+      memoryLimit: 4G
+      memoryRequest: 1G
+      cpuLimit: 2000m
+      cpuRequest: 500m
+      mountSources: true
+      endpoints:
+        - name: jupyter-lab
+          targetPort: 8888
+          exposure: public
+          protocol: http
+          secure: false
+        - name: flask
+          targetPort: 5000
+          exposure: public
+          protocol: http
+          secure: true
