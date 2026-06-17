@@ -61,6 +61,7 @@ commands:
       component: dev-tools
       workingDir: ${PROJECTS_ROOT}/python-app
       commandLine: |
+        set -e
         source .venv/bin/activate
         python3 main.py
       group:
