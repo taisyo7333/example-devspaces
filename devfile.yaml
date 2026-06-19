@@ -54,7 +54,7 @@ commands:
         pip install -r requirements.txt
       group:
         kind: build
-        isDefault: true
+
   - id: run-flask
     exec:
       label: 02. Run Flask App
@@ -65,5 +65,5 @@ commands:
         source .venv/bin/activate
         python3 main.py
       group:
-        kind: run
-        isDefault: true
+        kind: deploy
+
