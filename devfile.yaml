@@ -18,7 +18,7 @@ projects:
       remotes:
         origin: "https://github.com/taisyo7333/example-python.git"
       checkoutFrom:
-        revision: main # Cloning Branch or tag (e.g: main, master, develop, v1.0.0 and so on)
+        revision: demo_2026 # tag
 
 components:
   - name: dev-tools
