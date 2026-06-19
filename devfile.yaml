@@ -54,6 +54,7 @@ commands:
         pip install -r requirements.txt
       group:
         kind: build
+        isDefault: true
 
   - id: run-flask
     exec:
@@ -66,4 +67,5 @@ commands:
         python3 main.py
       group:
         kind: run
+        isDefault: true
 
