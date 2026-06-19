@@ -42,7 +42,7 @@ components:
           secure: true
 
 commands:
-  - id: setup-flask
+  - id: setup-flask-app
     exec:
       label: 01-setup-flask-app
       component: dev-tools
@@ -56,7 +56,7 @@ commands:
         kind: build
         isDefault: true
 
-  - id: run-flask
+  - id: run-flask-app
     exec:
       label: 02-run-flask-app
       component: dev-tools
