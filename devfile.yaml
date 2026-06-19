@@ -44,7 +44,7 @@ components:
 commands:
   - id: setup-flask
     exec:
-      label: 01. Setup Flask App
+      label: 01-setup-flask-app
       component: dev-tools
       workingDir: ${PROJECTS_ROOT}/python-app
       commandLine: |
@@ -57,7 +57,7 @@ commands:
 
   - id: run-flask
     exec:
-      label: 02. Run Flask App
+      label: 02-run-flask-app
       component: dev-tools
       workingDir: ${PROJECTS_ROOT}/python-app
       commandLine: |
