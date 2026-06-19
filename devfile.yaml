@@ -65,5 +65,5 @@ commands:
         source .venv/bin/activate
         python3 main.py
       group:
-        kind: deploy
+        kind: run
 
